@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for Ishani 💖</title>
+    <style>
+        body {
+            background-color: #ffe4e1;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .heart {
+            font-size: 24px;
+            color: red;
+            line-height: 1.2;
+            white-space: pre;
+            margin: 20px auto;
+        }
+
+        #proposal {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d6336c;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading surprise for Ishani... 💕</h1>
+    <div class="heart" id="heart"></div>
+    <div id="proposal"></div>
+    <button class="btn" id="yesBtn" style="display: none;">Yes 💖</button>
+    <button class="btn" id="noBtn" style="display: none;">No 💔</button>
+
+    <script>
+        const heartLines = [
+            "   ***     ***   ",
+            "  *****   *****  ",
+            " ******* ******* ",
+            "  *************  ",
+            "   ***********   ",
+            "    *********    ",
+            "     *******     ",
+            "      *****      ",
+            "       ***       ",
+            "        *        "
+        ];
+
+        function displayHeart() {
+            let heartDiv = document.getElementById('heart');
+            let i = 0;
+            let interval = setInterval(() => {
+                if (i < heartLines.length) {
+                    heartDiv.innerHTML += heartLines[i] + '<br>';
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    showProposal();
+                }
+            }, 300);
+        }
+
+        function showProposal() {
+            const proposalText = "Ishani, will you be the love of my life forever? 💖";
+            let proposalDiv = document.getElementById('proposal');
+            let i = 0;
+
+            let typing = setInterval(() => {
+                if (i < proposalText.length) {
+                    proposalDiv.innerHTML += proposalText[i];
+                    i++;
+                } else {
+                    clearInterval(typing);
+                    showButtons();
+                }
+            }, 100);
+        }
+
+        function showButtons() {
+            document.getElementById('yesBtn').style.display = 'inline-block';
+            document.getElementById('noBtn').style.display = 'inline-block';
+        }
+
+        document.getElementById('yesBtn').onclick = function () {
+            alert("Yay! You just made my life perfect! ❤️");
+        };
+
+        document.getElementById('noBtn').onclick = function () {
+            alert("Oh no! But I'll always cherish you. 💔");
+        };
+
+        // Start the surprise
+        setTimeout(displayHeart, 2000);
+    </script>
+</body>
+</html>
